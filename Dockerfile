@@ -1,13 +1,13 @@
-#FROM nodered/node-red:2.2.0-16
-FROM nodered/node-red:latest
+FROM nodered/node-red:2.2.0-16
 LABEL maintainer Lyas Spiehler
 
 WORKDIR /usr/src/node-red
 
-ADD ./.config.projects.json /data/
+COPY ./.config.projects.json /data/
 
-ADD ./.config.users.json /data/
+COPY ./.config.users.json /data/
 
+#COPY ./node-red-test-project /data/projects/node-red-project-test
 RUN git clone https://github.com/lspiehler/node-red-test-project.git /data/projects/node-red-project-test
 
 EXPOSE 1880/tcp
