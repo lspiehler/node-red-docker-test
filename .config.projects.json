@@ -1,0 +1,8 @@
+{
+    "projects": {
+        "vm-node-red": {
+            "credentialSecret": false
+        }
+    },
+    "activeProject": "node-red-project-test"
+}
