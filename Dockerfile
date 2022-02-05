@@ -10,6 +10,12 @@ COPY ./.config.users.json /data/
 #COPY ./node-red-test-project /data/projects/node-red-project-test
 RUN git clone https://github.com/lspiehler/node-red-test-project.git /data/projects/node-red-project-test
 
+WORKDIR /data/projects/node-red-project-test
+
+RUN git remote set-url origin git@github.com:lspiehler/node-red-test-project.git
+
+WORKDIR /usr/src/node-red
+
 EXPOSE 1880/tcp
 
 HEALTHCHECK CMD node /healthcheck.js

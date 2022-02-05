@@ -6,7 +6,7 @@ git clone https://github.com/lspiehler/node-red-docker-test.git
 
 #git submodule update --init --recursive
 
-docker build --pull --rm -f "Dockerfile" -t docker.io/lspiehler/node-red-project-test:latest "."
+docker build --no-cache --pull --rm -f "Dockerfile" -t docker.io/lspiehler/node-red-project-test:latest "."
 
 ## Scan
 
