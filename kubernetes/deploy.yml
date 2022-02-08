@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: node-red
+  name: node-red
+  namespace: node-red
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: node-red
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: node-red
+    spec:
+      containers:
+        - image: docker.io/lspiehler/nodered-test-project:latest
+        #- image: nodered/node-red:latest
+          imagePullPolicy: Always
+          name: node-red
+          ports:
+            - containerPort: 1880
+              protocol: TCP
+          resources: {}
+          env:
+            - name: NODE_RED_ENABLE_PROJECTS
+              value: "true"
+            - name: TZ
+              value: America/Chicago
+            - name: PGID
+              value: "1000"
+            - name: PUID
+              value: "1000"
